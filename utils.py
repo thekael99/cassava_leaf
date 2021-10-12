@@ -11,13 +11,13 @@ import json
 class B4_model:
     def __init__(self):
         self.model = Sequential()
-        self.model.add(EfficientNetB4(include_top=False, weights=None, input_shape=(224, 224, 3)))
+        self.model.add(EfficientNetB4(include_top=False, weights=None, input_shape=(299, 299, 3)))
         self.model.add(layers.GlobalAveragePooling2D())
         self.model.add(layers.Dense(5, activation="softmax"))
-        self.model.load_weights("./models/B4_224/B4.h5")
+        self.model.load_weights("./models/EfficientnetB4/B4.h5")
 
     def predict(self, img):
-        img = cv2.resize(img, (224, 224))
+        img = cv2.resize(img, (299, 299))
         img = np.expand_dims(img, axis=0)
         res = self.model.predict(img)
         return res
