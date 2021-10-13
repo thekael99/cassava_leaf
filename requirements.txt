@@ -2,4 +2,5 @@ opencv-python-headless
 tensorflow
 torch
 numpy
+pandas
 Pillow

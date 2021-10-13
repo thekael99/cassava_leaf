@@ -5,7 +5,7 @@ import numpy as np
 # from speed_classify.model import Network
 from models.resneXt.resneXt import ResNeXt
 import torch
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import os
 import time
 import pandas as pd
