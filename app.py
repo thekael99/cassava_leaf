@@ -31,7 +31,7 @@ def main():
 
     elif choice == "Ensemble":
         with st.spinner(text='Loading Ensemble...'):
-            pass
+            model = Ensemble()
         st.success('Ensemble loaded!')
 
     image_file = st.file_uploader("Upload Image", type=["jpg", "png", "jpeg"])

@@ -47,7 +47,16 @@ class resneXt_model:
 
 
 class Ensemble:
-    pass
+    def __init__(self):
+        self.B4 = B4_model()
+        self.Mobilenet = Mobilenet()
+        self.resneXt_model = resneXt_model()
+
+    def predict(self, img):
+        pred1 = np.append(self.B4.predict(img)[0], 0)
+        pred2 = self.Mobilenet.predict(img)[0]
+        pred3 = np.append(self.resneXt_model.predict(img)[0], 0)
+        return (0.4 * pred1 + 0.4 * pred2 + 0.2 * pred3).reshape(1, -1)
 
 
 def load_label_names():
